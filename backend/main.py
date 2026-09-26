@@ -21,6 +21,7 @@ from typing import Optional
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from insights_engine import (
@@ -200,6 +201,13 @@ def generate_insights(request: GenerateInsightsRequest):
     dest_path.write_text(content, encoding="utf-8")
 
     return {"filename": dest_path.name, "content": content}
+
+
+app.mount(
+    "/",
+    StaticFiles(directory=BASE_DIR.parent / "frontend", html=True),
+    name="frontend",
+)
 
 
 if __name__ == "__main__":
