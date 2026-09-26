@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Influencer Data Site</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Gaming Influencer Data</h1>
+  </header>
+
+  <main>
+    <!-- 1. Download CSV -->
+    <section class="card">
+      <h2>1. Download CSV</h2>
+      <p>Download the raw influencer engagement dataset stored on the server.</p>
+      <button id="download-btn">Download influencers.csv</button>
+    </section>
+
+    <!-- 2. View raw CSV data -->
+    <section class="card">
+      <h2>2. View Data</h2>
+      <p>
+        <span id="row-count"></span>
+      </p>
+      <div class="table-wrapper">
+        <table id="data-table">
+          <thead id="table-head"></thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. Latest generated insights, with filters to regenerate on demand -->
+    <section class="card">
+      <h2>3. Insights</h2>
+
+      <p class="preset-label">Quick presets</p>
+      <div class="presets">
+        <button class="preset-btn" data-top-n="20" data-group-by="none">Top 20 Overall</button>
+        <button class="preset-btn" data-top-n="10" data-group-by="none">Top 10 Overall</button>
+        <button class="preset-btn" data-top-n="5" data-group-by="primary_game">Top 5 per Game</button>
+        <button class="preset-btn" data-top-n="3" data-group-by="country">Top 3 per Country</button>
+      </div>
+
+      <div class="filters">
+        <label>
+          Top N
+          <input type="number" id="top-n-input" min="1" max="100" value="20" />
+        </label>
+
+        <label>
+          Group by
+          <select id="group-by-select">
+            <option value="none">None (overall)</option>
+            <option value="primary_game">Primary Game</option>
+            <option value="country">Country</option>
+          </select>
+        </label>
+
+        <label id="filter-value-label" hidden>
+          Filter to
+          <select id="filter-value-select">
+            <option value="">All</option>
+          </select>
+        </label>
+
+        <button id="generate-btn">Generate Insights</button>
+      </div>
+
+      <p id="insights-status">Loading latest insights…</p>
+      <pre id="insights-content" class="insights-box" hidden></pre>
+      <div class="insights-actions">
+        <button id="download-insights-btn" hidden>Download insights.txt</button>
+        <button id="reset-insights-btn" type="button" hidden title="Clear the generated insights output">Reset</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
