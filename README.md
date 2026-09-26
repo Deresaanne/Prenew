@@ -3,7 +3,7 @@
 ```mermaid
 flowchart TD
 
-    A[Social Platforms<br/>TikTok · IG Reels · YouTube Shorts] --> B[Scraping Layer<br/>Playwright · Proxies · Device Spoofing]
+    A[Social Platforms<br/>TikTok] --> B[Scraping Layer<br/>Playwright · Proxies · Device Spoofing]
 
     B --> C[Creator Extraction<br/>Stats · Posts · Hashtags · Frequency]
 
