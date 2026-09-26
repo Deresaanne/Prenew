@@ -1,5 +1,6 @@
 // Base URL of the FastAPI backend. Change this if you host the API elsewhere.
-const API_BASE = "http://localhost:8000";
+// const API_BASE = "http://localhost:8000";
+const API_BASE = "https://prenew-ih7c.onrender.com";
 
 const downloadBtn = document.getElementById("download-btn");
 const tableHead = document.getElementById("table-head");
